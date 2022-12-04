@@ -3,6 +3,7 @@
 
 import os
 import subprocess
+import pyperclip
 from typing import AnyStr
 
 from manga_ocr import MangaOcr
@@ -19,8 +20,7 @@ def is_fifo(path: AnyStr) -> bool:
 
 
 def to_clip(text: str):
-    p = subprocess.Popen(('xclip', '-selection', 'clipboard',), stdin=subprocess.PIPE)
-    p.communicate(input=text.encode())
+    pyperclip.copy(text)
 
 
 def notify_send(msg: str):

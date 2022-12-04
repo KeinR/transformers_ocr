@@ -39,7 +39,7 @@ download_manga_ocr() {
 }
 
 take_screenshot() {
-	maim --select --hidecursor --format=png --quality 1
+    grim -g "$(slurp)" -
 }
 
 prepare_pipe() {
@@ -98,7 +98,7 @@ help() {
 }
 
 main() {
-	if_installed maim xclip || exit 1
+	if_installed grim wl-copy || exit 1
 	prepare_pipe
 	case ${1-} in
 		download) download_manga_ocr ;;
